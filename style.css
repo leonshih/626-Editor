@@ -5,15 +5,19 @@
 	margin: 5px auto;
 	padding: 15px;
 }
+.container{
+	position: relative;
+    word-wrap: break-word;
+}
 #showArea, #txtArea{
 	width: 100%;
 	height: 500px;
-	max-width: 100%;
-	
+	max-width: 100%;	
 	min-width: 100%;
 }
 #showArea{
 	display: none;
+	line-height: 28px;
 }
 body{
 	font-family: 'SimHei', 'Microsoft JhengHe', 'Microsoft YaHei', 'HelveticaNenu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -24,6 +28,7 @@ body{
 	#showArea img{
 		width: 100%;
 		height: auto;		
+    word-wrap: break-word;
 	}
 	#showArea img.right{
 		width: 25%;
@@ -40,9 +45,5 @@ body{
 	#showArea > span > img{
 		width: 45%;
 		margin: 0 2%;
-	}
-	#showArea {
-		word-wrap:break-word;
-		line-height: 28px;
 	}
 /*BLOGGER END*/
