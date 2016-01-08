@@ -22,6 +22,12 @@
 body{
 	font-family: 'SimHei', 'Microsoft JhengHe', 'Microsoft YaHei', 'HelveticaNenu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
+.navigation img{
+	 cursor: pointer; 
+	 cursor: hand; 
+	 width: 35px; 
+	 height: 35px;
+}
 
 /*BLOGGER*/
 
