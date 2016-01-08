@@ -1,16 +1,22 @@
 .container, .navigation{
 	width: 800px;
+	height: auto;
 	border: 1px solid #666;
 	margin: 5px auto;
-	padding: 10px;
+	padding: 15px;
 }
 #showArea, #txtArea{
 	width: 100%;
 	height: 500px;
 	max-width: 100%;
+	
+	min-width: 100%;
 }
 #showArea{
 	display: none;
+}
+body{
+	font-family: 'SimHei', 'Microsoft JhengHe', 'Microsoft YaHei', 'HelveticaNenu', 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
 /*BLOGGER*/
@@ -28,5 +34,9 @@
 	#showArea > span > img{
 		width: 45%;
 		margin: 0 2%;
+	}
+	#showArea {
+		word-wrap:break-word;
+		line-height: 28px;
 	}
 /*BLOGGER END*/

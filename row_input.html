@@ -30,7 +30,8 @@
 						var textmid = "'/><img src='"
 						var textend = "'/></span><!--並排圖片END===-->";
 						var txtArea = window.opener.document.getElementById('txtArea');
-						txtArea.innerHTML = (txtArea.innerHTML + texthead + texturl1 + textmid + texturl2 + textend);
+						var cursor = txtArea.selectionStart;
+						txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl1 + textmid + texturl2 + textend + txtArea.value.substring(cursor));
 					}
 				}
 				window.close();

@@ -29,7 +29,8 @@
 						
 						var textend = "'/><!--文繞圖(右)END===-->";
 						var txtArea = window.opener.document.getElementById('txtArea');
-						txtArea.innerHTML = (txtArea.innerHTML + texthead + texturl + textend);
+						var cursor = txtArea.selectionStart;
+						txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl + textend + txtArea.value.substring(cursor));
 					}
 				}
 				window.close();

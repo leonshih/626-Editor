@@ -18,18 +18,18 @@
 			$("#container").pwi(settings);
 			  
 		  });
-        
     </script>
         <script type="text/javascript">
 			function setUrl() {
 				if (window.opener != null && !window.opener.closed) {
 					var texturl = document.getElementById("url1").value;
 					if(texturl){
-						var texthead = "<!--===置中圖片--><img src='";
-						
+						var texthead = "<!--===置中圖片--><img src='";						
 						var textend = "'/><!--置中圖片END===-->";
+						
 						var txtArea = window.opener.document.getElementById('txtArea');
-						txtArea.value = (txtArea.value + texthead + texturl + textend);
+						var cursor = txtArea.selectionStart;
+						txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl + textend + txtArea.value.substring(cursor));
 					}
 				}
 				window.close();
