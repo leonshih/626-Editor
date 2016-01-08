@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type='text/javascript'></script>
+    <script src="js.js" type='text/javascript'></script>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <title>Blog Editor</title>
+</head>
+<body>
+	<div class='navigation'>
+		<button onclick='changeView()'>看結果</button>
+		<button onclick='toHyperLink()'>變超連結</button>
+		<button onclick='addCentralImg()'>置中圖片</button>
+		<button onclick='addRowImg()'>並排圖片</button>
+		<button onclick=''>文繞圖(左)</button>
+		<button onclick='addRightImg()'>文繞圖(右)</button>
+		<button onclick=''>資訊</button>
+		<button onclick=''>小知識</button>
+		<button onclick=''>輸出結果</button>
+	</div>
+	<div class='container'>
+		<textarea id='txtArea'></textarea>
+		<div id='showArea'></div>		
+	</div>
+	
+	<span id='test'></span>
+</body>
+</html>

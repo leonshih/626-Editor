@@ -1,0 +1,32 @@
+.container, .navigation{
+	width: 800px;
+	border: 1px solid #666;
+	margin: 5px auto;
+	padding: 10px;
+}
+#showArea, #txtArea{
+	width: 100%;
+	height: 500px;
+	max-width: 100%;
+}
+#showArea{
+	display: none;
+}
+
+/*BLOGGER*/
+
+	#showArea img{
+		width: 100%;
+		height: auto;		
+	}
+	#showArea img.right{
+		width: 25%;
+		float: right;
+		margin: 0 0 15px 15px;
+		padding: 32px 0 0 0;
+	}
+	#showArea > span > img{
+		width: 45%;
+		margin: 0 2%;
+	}
+/*BLOGGER END*/
