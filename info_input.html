@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8" />
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
+    <script type="text/javascript">
+		function setUrl() {
+			if (window.opener != null && !window.opener.closed) {
+				var texturl = document.getElementById("url1").value;
+				if(texturl){
+					var texthead = "<!--===小資訊框--><img src='";						
+					var textend = "'/><!--小資訊框END===-->";
+					
+					var txtArea = window.opener.document.getElementById('txtArea');
+					var cursor = txtArea.selectionStart;
+					txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl + textend + txtArea.value.substring(cursor));
+				}
+			}
+			window.close();
+		}
+	</script>
+    </head>
+    <body> 
+        小資訊網址：
+		<br />
+        <input style='width: 100%, height: 600px' type='text' name="url1" id="url1"/>
+		<br />
+		<br />
+		<input type="button" value="確定" onclick="setUrl();" />
+		<div id='container'></div>
+		
+    </body> 
+</html>

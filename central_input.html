@@ -24,8 +24,11 @@
 				if (window.opener != null && !window.opener.closed) {
 					var texturl = document.getElementById("url1").value;
 					if(texturl){
+						var imgTitle = document.getElementById('imgTitle').value;
+						var imgAlt = document.getElementById('imgAlt').value;
+					
 						var texthead = "<!--===置中圖片--><img src='";						
-						var textend = "'/><!--置中圖片END===-->";
+						var textend = "' title='" + imgTitle + " 'alt='" + imgAlt + "'/><!--置中圖片END===-->";
 						
 						var txtArea = window.opener.document.getElementById('txtArea');
 						var cursor = txtArea.selectionStart;
@@ -37,7 +40,15 @@
 		</script>
     </head>
     <body> 
-        圖片網址：
+		圖片標題：
+		<br />
+		<input style='width: 250px' type='text' name='imgTitle' id='imgTitle' /> 
+		<br />
+		圖片簡述：
+		<br />
+		<input style='width: 250px' type='text' name='imgAlt' id='imgAlt' /> 
+		<br />
+        圖片網址(拖拉下方圖片)：
 		<br />
         <input style='width: 100%' type='text' name="url1" id="url1"/>
 		<br />

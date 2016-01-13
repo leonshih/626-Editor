@@ -18,21 +18,20 @@
 			$("#container").pwi(settings);
 			  
 		  });
-        
     </script>
         <script type="text/javascript">
 			function setUrl() {
 				if (window.opener != null && !window.opener.closed) {
 					var texturl = document.getElementById("url1").value;
 					if(texturl){
-						var imgTitle = document.getElementById('imgTitle').value;
-						var imgAlt = document.getElementById('imgAlt').value;
-					
-						var texthead = "<!--===文繞圖(左)--><img class='left' src='";						
-						var textend = "' title='" + imgTitle + "' alt='" + imgAlt + "'/><!--文繞圖(左)END===-->";
+						var imghead = "<!--===小知識--><div id='knowledge'><img src='";		
+						var imgend = "'/>";
+						var img = imghead + texturl + imgend + '<br />';
+						
+						var content = $('txtcontent').value + '</div>';
+						var cursor = txtArea.selectionStart;				
 						var txtArea = window.opener.document.getElementById('txtArea');
-						var cursor = txtArea.selectionStart;
-						txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl + textend + txtArea.value.substring(cursor));
+						txtArea.value = (txtArea.value.substring(0, cursor) + img + content + txtArea.value.substring(cursor));
 					}
 				}
 				window.close();
@@ -40,17 +39,13 @@
 		</script>
     </head>
     <body> 
-		圖片標題：
-		<br />
-		<input style='width: 250px' type='text' name='imgTitle' id='imgTitle' /> 
-		<br />
-		圖片簡述：
-		<br />
-		<input style='width: 250px' type='text' name='imgAlt' id='imgAlt' /> 
-		<br />
-        圖片網址(拖拉下方圖片)：
+        圖片網址：
 		<br />
         <input style='width: 100%' type='text' name="url1" id="url1"/>
+		<br />
+		文字內容：
+		<br />
+		<textarea id='txtcontent' style='width: 600px; height: 400px'></textarea>
 		<br />
 		<br />
 		<input type="button" value="確定" onclick="setUrl();" />

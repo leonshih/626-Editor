@@ -3,21 +3,14 @@ function changeView(){
 	$('#showArea').toggle(  );
 	
 	var text = document.getElementById('txtArea').value.replace(/(?:\r\n|\r|\n)/g, '<br />');
-	document.getElementById('showArea').innerHTML = text;	
+	document.getElementById('showArea').innerHTML = text;
+	
+	if($('.btn_changeView')[0].innerHTML == '預覽')
+		$('.btn_changeView')[0].innerHTML = '編輯';
+	else
+		$('.btn_changeView')[0].innerHTML = '預覽';
 }
-function addCentralImg(){
-	var ppw = window.open('central_input.html', '', 'width=1400,height=800');
-}
-function addRowImg(){
-	var ppw = window.open('row_input.html', '', 'width=1400,height=800');
-}
-function addRightImg(){
-	var ppw = window.open('right_input.html', '', 'width=1400,height=800');
-}
-function addLeftImg(){
-	var ppw = window.open('left_input.html', '', 'width=1400,height=800');
-}
-function toHyperLink(){
+function addGoDown(){
 	var text = prompt("要變成連結的字");
 	var ele1 = '<!--====超連結--><a href="#info_block" id="godown"><b>';
 	var ele2 = '</b></a><!--超連結END====-->';
@@ -26,6 +19,24 @@ function toHyperLink(){
 		var cursor = txtArea.selectionStart;
 		txtArea.value = (txtArea.value.substring(0, cursor) + ele1 + text + ele2 + txtArea.value.substring(cursor));
 	}
+}
+function addCentralImg(){
+	window.open('central_input.html', '', 'width=1400,height=800');
+}
+function addRowImg(){
+	window.open('row_input.html', '', 'width=1400,height=800');
+}
+function addRightImg(){
+	window.open('right_input.html', '', 'width=1400,height=800');
+}
+function addLeftImg(){
+	window.open('left_input.html', '', 'width=1400,height=800');
+}
+function addInfo(){
+	window.open('info_input.html', '', 'width=1400,height=800')
+}
+function addKnowledge(){
+	window.open('knowledge_input.html', '', 'width=1400,height=800')
 }
 function typing(){
 	document.getElementById("txtArea").innerHTML = document.getElementById("txtArea").value;

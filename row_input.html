@@ -26,9 +26,16 @@
 					var texturl1 = document.getElementById("url1").value;
 					var texturl2 = document.getElementById("url2").value;
 					if(texturl1 && texturl2){
+						var imgTitle1 = document.getElementById('imgTitle_left').value;
+						var imgAlt1 = document.getElementById('imgAlt_left').value;
+					
+						var imgTitle2 = document.getElementById('imgTitle_right').value;
+						var imgAlt2 = document.getElementById('imgAlt_right').value;
+						
+					
 						var texthead = "<!--===並排圖片--><span><img src='";
-						var textmid = "'/><img src='"
-						var textend = "'/></span><!--並排圖片END===-->";
+						var textmid = "' title='" + imgTitle1 + "' alt='" + imgAlt1 + "'/><img src='"
+						var textend = "' title='" + imgTitle2 + "' alt='" + imgAlt2 + "'/></span><!--並排圖片END===-->";
 						var txtArea = window.opener.document.getElementById('txtArea');
 						var cursor = txtArea.selectionStart;
 						txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl1 + textmid + texturl2 + textend + txtArea.value.substring(cursor));
@@ -39,12 +46,32 @@
 		</script>
     </head>
     <body> 
-		圖片網址(左)：
+		<div style='width: 300px; float: left;'>
+			圖片標題(左)：
+			<br />
+			<input style='width: 250px' type='text' name='imgTitle_left' id='imgTitle_left' /> 
+			<br />
+			圖片簡述(左)：
+			<br />
+			<input style='width: 250px' type='text' name='imgAlt_left' id='imgAlt_left' /> 
+			<br />
+		</div>
+		<div>
+			圖片標題(右)：
+			<br />
+			<input style='width: 250px' type='text' name='imgTitle_right' id='imgTitle_right' /> 
+			<br />
+			圖片簡述(右)：
+			<br />
+			<input style='width: 250px' type='text' name='imgAlt_right' id='imgAlt_right' /> 
+			<br />
+		</div>
+		<br />
+		圖片網址(左)(拖拉下方圖片)：
 		<br />
         <input style='width: 100%' type='text' name="url1" id="url1"/>
 		<br />
-		<br />
-		圖片網址(右)：
+		圖片網址(右)(拖拉下方圖片)：
 		<input style='width: 100%'  type='text' name="url2" id="url2"/>
 		<br />
 		<br />
