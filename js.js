@@ -2,8 +2,6 @@ $(function(){
 	$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8', function(data){
 		for(i=0; i<data.items.length; i++){
 			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
-			console.log(data.items[i].id);
-			console.log(data.items[i].title);
 		}
 		
 	});
@@ -16,13 +14,17 @@ function changeView(){
 	$('#txtArea').toggle(  );
 	$('#showArea').toggle(  );
 	
-	var text = document.getElementById('txtArea').value.replace(/(?:\r\n|\r|\n)/g, '<br />');
-	document.getElementById('showArea').innerHTML = text;
 	
-	if($('.btn_changeView')[0].innerHTML == '預覽')
+	if($('.btn_changeView')[0].innerHTML == '預覽'){}
 		$('.btn_changeView')[0].innerHTML = '編輯';
-	else
+		var text = document.getElementById('txtArea').value.replace(/(?:\r\n|\r|\n)/g, '<br />');
+		document.getElementById('showArea').innerHTML = text;
+	}
+	else{
 		$('.btn_changeView')[0].innerHTML = '預覽';
+		var text = document.getElementById('showArea').value.replace('<br />', /(?:\r\n|\r|\n)/g);
+		document.getElementById('txtArea').innerHTML = text;
+	}
 }
 function addThumbNail(){
 	window.open('thumbnail_input.html', '', 'width=1400,height=800');
