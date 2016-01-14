@@ -5,6 +5,14 @@
     <link href="style.css" rel="stylesheet" type="text/css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type='text/javascript'></script>
     <script src="js.js" type='text/javascript'></script>
+	<script src="https://www.googleapis.com/blogger/v3/blogs/5768039957092517741?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8"></script>
+	<script>
+		$(function(){
+			$.get("https://www.googleapis.com/blogger/v3/blogs/5768039957092517741?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8", function(data, status){
+				alert("Data: " + data + "\nStatus: " + status);
+			});
+		});
+	</script>
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>No.626 Blog Editor</title>
 </head>
