@@ -27,12 +27,11 @@
 						var imgTitle = document.getElementById('imgTitle').value;
 						var imgAlt = document.getElementById('imgAlt').value;
 					
-						var texthead = "<!--===置中圖片--><img src='";						
-						var textend = "' title='" + imgTitle + "' alt='" + imgAlt + "'/><!--置中圖片END===-->";
+						var texthead = "<!--===文章首圖--><img src='";						
+						var textend = "' title='" + imgTitle + "' alt='" + imgAlt + "' style='display:none; width:0;'/><!--文章首圖END===-->";
 						
 						var txtArea = window.opener.document.getElementById('txtArea');
-						var cursor = txtArea.selectionStart;
-						txtArea.value = (txtArea.value.substring(0, cursor) + texthead + texturl + textend + txtArea.value.substring(cursor));
+						txtArea.value = (texthead + texturl + textend) + txtArea.value;
 					}
 				}
 				window.close();

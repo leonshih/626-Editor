@@ -10,6 +10,9 @@ function changeView(){
 	else
 		$('.btn_changeView')[0].innerHTML = '預覽';
 }
+function addThumbNail(){
+	window.open('thumbnail_input.html', '', 'width=1400,height=800');
+}
 function addGoDown(){
 	var text = prompt("要變成連結的字");
 	var ele1 = '<!--====超連結--><a href="#info_block" id="godown"><b>';
