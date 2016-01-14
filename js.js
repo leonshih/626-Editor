@@ -22,7 +22,7 @@ function changeView(){
 	}
 	else{
 		$('.btn_changeView')[0].innerHTML = '預覽';
-		var text = document.getElementById('showArea').innerHTML;
+		var text = document.getElementById('showArea').innerHTML.replace(/<br.*?>/g, '\n');
 		document.getElementById('txtArea').innerHTML = text;
 	}
 }
