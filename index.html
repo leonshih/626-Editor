@@ -9,7 +9,7 @@
 	<script>
 		$(function(){
 			$.get("https://www.googleapis.com/blogger/v3/blogs/5768039957092517741?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8", function(data, status){
-				alert("Data: " + data + "\nStatus: " + status);
+				console.log(data + ', ' + status);
 			});
 		});
 	</script>
