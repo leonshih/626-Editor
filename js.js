@@ -9,8 +9,8 @@ $(function(){
 		var postId = $('#post_titles').val();
 		$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + postId + '?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8', function(data){
 			var content = data.content;
-			$('#showArea')[0].innerHTML = content.replace(/(?:\r\n|\r|\n)/g, '<br />');
-			$('#txtArea')[0].innerHTML =  document.getElementById('showArea').innerHTML.replace(/<br.*?>/g, '\n');
+			$('#showArea')[0].innerHTML = content;
+			$('#txtArea')[0].innerHTML =  content.replace(/<br.*?>/g, '\n');
 		});
 	});
 });
