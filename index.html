@@ -6,13 +6,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js" type='text/javascript'></script>
     <script src="js.js" type='text/javascript'></script>
 	<script src="https://www.googleapis.com/blogger/v3/blogs/5768039957092517741?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8"></script>
-	<script>
-		$(function(){
-			$.get("https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8", function(data){
-				console.log(data);
-			});
-		});
-	</script>
+	
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <title>No.626 Blog Editor</title>
 </head>
@@ -29,6 +23,7 @@
 		<image title='小資訊' onclick='addInfo()' src='img/info.png'></image>
 		<image title='小知識' onclick='addKnowledge()' src='img/knowledge.png'></image>
 		<div style='float:right'>
+			<select id='post_titles'></select>
 			<button onclick='copyHTML()'>複製程式碼</button>
 			<button onclick='exportHTML()'>備份存檔</button>		
 			<textarea style='height:0; width: 0; overflow: hidden; opacity: 0;' class='js-copy'></textarea>

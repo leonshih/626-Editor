@@ -1,3 +1,15 @@
+$(function(){
+	$get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts?key=AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8', function(data){
+		for(i=0; i<data.items.length; i++){
+			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title);
+		}
+		
+	});
+	
+});
+
+
+
 function changeView(){
 	$('#txtArea').toggle(  );
 	$('#showArea').toggle(  );
