@@ -15,7 +15,7 @@ function changeView(){
 	$('#showArea').toggle(  );
 	
 	
-	if($('.btn_changeView')[0].innerHTML == '預覽'){}
+	if($('.btn_changeView')[0].innerHTML == '預覽'){
 		$('.btn_changeView')[0].innerHTML = '編輯';
 		var text = document.getElementById('txtArea').value.replace(/(?:\r\n|\r|\n)/g, '<br />');
 		document.getElementById('showArea').innerHTML = text;
