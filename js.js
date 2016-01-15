@@ -13,7 +13,10 @@ $(function(){
 		},
 		'title': 'new post',
 		'content': 'a new content'
-	});
+	}, function(data){
+		console.log(data);
+	}, 'application/json'
+	);
 	$('#post_titles').on('change', function(){
 		var postId = $('#post_titles').val();
 		$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + postId + '?key=' + key_token, function(data){
