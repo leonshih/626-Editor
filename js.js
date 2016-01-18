@@ -1,7 +1,7 @@
 var key_token = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){
-	$.get('https://accounts.google.com/o/oauth2/v2/auth?response_type=token&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com'
+	$.get('https://accounts.google.com/o/oauth2/v2/auth?redirect_url=http://leonshih.github.io/626-Editor/&response_type=token&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com'
 	);
 	
 	
