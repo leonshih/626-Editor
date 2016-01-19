@@ -4,7 +4,17 @@ $(function(){
 	$.post('https://accounts.google.com/o/oauth2/v2/auth?scope=profile&redirect_uri=http%3A%2F%2Fleonshih.github.io%2F626-Editor%2F&response_type=token&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com'
 	);
 	
-	
+	$.ajax({
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
+		data: {
+			key: key_token;
+		},
+		success: function(data){
+			for(i=0; i<data.items.length; i++){
+			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
+		}
+		}
+	});
 	$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts?key=' + key_token, function(data){
 		for(i=0; i<data.items.length; i++){
 			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
