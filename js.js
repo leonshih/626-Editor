@@ -7,17 +7,12 @@ $(function(){
 	$.ajax({
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
 		data: {
-			key: key_token;
+			key:key_token
 		},
 		success: function(data){
 			for(i=0; i<data.items.length; i++){
 			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
 		}
-		}
-	});
-	$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts?key=' + key_token, function(data){
-		for(i=0; i<data.items.length; i++){
-			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
 		}
 	});
 	$('#post_titles').on('change', function(){
