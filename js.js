@@ -1,8 +1,7 @@
 var key_token = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){
-	$.post('https://accounts.google.com/o/oauth2/v2/auth?scope=profile&redirect_uri=http%3A%2F%2Fleonshih.github.io%2F626-Editor%2F&response_type=token&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com'
-	);
+	
 	
 	$.ajax({
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
@@ -25,7 +24,18 @@ $(function(){
 	});
 });
 
-
+function login(){
+	$.ajax({
+		method:'post',
+		url: 'https://accounts.google.com/o/oauth2/v2/auth',
+		data: {
+			response_type:'token',
+			scope:'profile',
+			redirect_url:'http://leonshih.github.io/626-Editor/',
+			client_id:'968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com'
+		}
+	});
+}
 
 function changeView(){
 	$('#txtArea').toggle(  );
