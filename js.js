@@ -1,19 +1,10 @@
 var key_token = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){
+	window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=profile&redirect_uri=http://leonshih.github.io/626-Editor/&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com';
 	
+	updatePostsMenu();
 	
-	$.ajax({
-		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
-		data: {
-			key:key_token
-		},
-		success: function(data){
-			for(i=0; i<data.items.length; i++){
-			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
-		}
-		}
-	});
 	$('#post_titles').on('change', function(){
 		var postId = $('#post_titles').val();
 		$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + postId + '?key=' + key_token, function(data){
@@ -24,15 +15,20 @@ $(function(){
 	});
 });
 
-function login(){
+function newpost(){
+	
+}
+
+function updatePostsMenu(){	
 	$.ajax({
-		method:'post',
-		url: 'https://accounts.google.com/o/oauth2/v2/auth',
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
 		data: {
-			response_type:'token',
-			scope:'profile',
-			redirect_url:'http://leonshih.github.io/626-Editor/',
-			client_id:'968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com'
+			key:key_token
+		},
+		success: function(data){
+			for(i=0; i<data.items.length; i++){
+			$('#post_titles').append($('<option></option>').attr('value', data.items[i].id).text(data.items[i].title));
+		}
 		}
 	});
 }
