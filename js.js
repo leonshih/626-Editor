@@ -11,6 +11,10 @@ $(function(){
 	if(params['access_token'] == null)
 		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=profile&redirect_uri=http://leonshih.github.io/626-Editor/&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com';
 	
+	$('.newpost').click(function(){
+		addPost(params['access_token']);		
+	});
+	
 	updatePostsMenu();
 	
 	$('#post_titles').on('change', function(){
@@ -23,9 +27,21 @@ $(function(){
 	});
 });
 
-function newpost(){
-	
+function addPost(token){
+	$.post('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/', {
+		'Authorization': token,
+		'Content-Type': 'application/json',
+		data: {
+			"kind": "blogger#post",
+			"blog": {
+				"id": "5768039957092517741"
+			},
+			"title": "A new post",
+			"content": "With <b>exciting</b> content..."
+		}
+	});
 }
+
 
 function updatePostsMenu(){	
 	$.ajax({
