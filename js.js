@@ -1,7 +1,15 @@
 var key_token = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){
-	window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=profile&redirect_uri=http://leonshih.github.io/626-Editor/&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com';
+	var params = {},
+	    queryString = location.hash.substring(1),
+		regex = /([^&=]+)=([^&]*)/g, 
+		m;
+	while(m = regex.exec(queryString)){
+		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+	}
+	if(params['access_token'] == null)
+		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=profile&redirect_uri=http://leonshih.github.io/626-Editor/&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com';
 	
 	updatePostsMenu();
 	
