@@ -28,7 +28,7 @@ $(function(){
 });
 
 function addPost(token){
-	$.post('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/', {
+	$.post('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + '?key=' + key_token, {
 		'Authorization': token,
 		'Content-Type': 'application/json',
 		data: {
