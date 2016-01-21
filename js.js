@@ -28,9 +28,13 @@ $(function(){
 });
 
 function addPost(token){
-	$.post('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + '?key=' + key_token, {
-		'Authorization': token,
-		'Content-Type': 'application/json',
+	$.ajax({
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/',
+		type: 'post',
+		headers: {
+			'Authorization': token,
+			'Content-Type': 'application/json',
+		},
 		data: {
 			"kind": "blogger#post",
 			"blog": {
@@ -38,7 +42,8 @@ function addPost(token){
 			},
 			"title": "A new post",
 			"content": "With <b>exciting</b> content..."
-		}
+		},
+		dataType: 'json'
 	});
 }
 
