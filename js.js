@@ -33,8 +33,7 @@ function addPost(token){
 		method: 'POST',
 		headers: {
 			'Authorization': token,
-			'Content-Type': 'application/json',
-			'Host': 'googleapis.com'
+			'Content-Type': 'application/json'
 		},
 		data: {
 			"kind": "blogger#post",
