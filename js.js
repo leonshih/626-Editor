@@ -9,7 +9,7 @@ $(function(){
 		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
 	}
 	if(params['access_token'] == null)
-		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=https://www.googleapis.com/auth/blogger&redirect_uri=http://leonshih.github.io/626-Editor/&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com';
+		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=https://www.googleapis.com/auth/blogger&client_id=968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com&redirect_uri=http://leonshih.github.io/626-Editor/';
 	
 	$('.newpost').click(function(){
 		addPost(params['access_token']);		
@@ -29,7 +29,7 @@ $(function(){
 
 function addPost(token){
 	$.ajax({
-		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/',
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/?key=' + API_key,
 		method: 'POST',
 		headers: {
 			'Authorization': token,
