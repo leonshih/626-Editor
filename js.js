@@ -30,7 +30,7 @@ $(function(){
 function addPost(token){
 	$.ajax({
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/',
-		type: 'post',
+		method: 'POST',
 		headers: {
 			'Authorization': token,
 			'Content-Type': 'application/json',
@@ -52,7 +52,7 @@ function updatePostsMenu(){
 	$.ajax({
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
 		data: {
-			key:'Bearer ' + API_key
+			key: API_key
 		},
 		success: function(data){
 			for(i=0; i<data.items.length; i++){
