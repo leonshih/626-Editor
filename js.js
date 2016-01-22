@@ -29,13 +29,14 @@ $(function(){
 
 function addPost(token){
 	$.ajax({
-		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/?key=' + API_key,
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/',
 		method: 'POST',
 		headers: {
 			'Authorization': token,
 			'Content-Type': 'application/json',
 		},
 		data: {
+			key: API_Key,
 			"kind": "blogger#post",
 			"blog": {
 				"id": "5768039957092517741"
