@@ -36,7 +36,7 @@ function addPost(token){
 			'Content-Type': 'application/json',
 		},
 		data: {
-			key: API_Key,
+			key: API_key,
 			"kind": "blogger#post",
 			"blog": {
 				"id": "5768039957092517741"
