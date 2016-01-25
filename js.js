@@ -19,7 +19,7 @@ $(function(){
 	});
 });
 
-function authorization(){
+function check_valid(){
 	var params = {},
 	    queryString = location.hash.substring(1),
 		regex = /([^&=]+)=([^&]*)/g, 
@@ -28,12 +28,23 @@ function authorization(){
 		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
 	}
 	if(params['access_token'] == null)
-		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + 
+		authoriztion();
+	else{
+		$.get('https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], function(data){
+			if(data.error_description != 'undefined')
+				authorization();				
+		});
+	}
+}
+
+function authorization(){
+	window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + 
 							   '&client_id=' + client_id + 
 							   '&redirect_uri=http://leonshih.github.io/626-Editor/';
 }
 
 function addPost(token){
+	check_valid();
 	var data = {
 			"kind": "blogger#post",
 			"blog": {
