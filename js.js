@@ -28,7 +28,7 @@ function check_valid(){
 		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
 	}
 	if(params['access_token'] == null)
-		authoriztion();
+		authorization();
 	else{
 		$.get('https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], function(data){
 			if(data.error_description != 'undefined')
