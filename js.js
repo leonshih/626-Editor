@@ -46,7 +46,7 @@ function check_valid(){
 function authorization(){
 	window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + 
 							   '&client_id=' + client_id + 
-							   '&redirect_uri=http://leonshih.github.io/626-Editor/';
+							   '&redirect_uri=http://leonshih.github.io/626-Editor/&prompt=consent&state=teststate';
 }
 
 function addPost(token){
