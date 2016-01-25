@@ -45,7 +45,7 @@ function addPost(token){
 			'Authorization': 'Bearer' + token,
 			'Content-Type': 'application/json'
 		},
-		data: JSON.stringify(data);
+		data: JSON.stringify(data)
 	});
 }
 
