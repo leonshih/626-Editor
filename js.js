@@ -11,7 +11,7 @@ $(function(){
 		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
 	}
 	if(params['access_token'] == null)
-		window.open('https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + '&client_id=' + client_id);
+		window.open('https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + '&client_id=' + client_id + '&redirect_uri=http://leonshih.github.io/626-Editor/');
 	
 	$('.newpost').click(function(){
 		addPost(params['access_token']);		
