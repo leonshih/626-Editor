@@ -4,7 +4,7 @@ var scope = 'https://www.googleapis.com/auth/blogger';
 
 $(function(){
 	$('.newpost').click(function(){
-		addPost(params['access_token']);		
+			check_valid();
 	});
 	
 	updatePostsMenu();
@@ -32,7 +32,9 @@ function check_valid(){
 	else{
 		$.get('https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], function(data){
 			if(data.error_description != 'undefined')
-				authorization();				
+				authorization();
+			else
+				addPost(params['access_token']);
 		});
 	}
 }
@@ -44,7 +46,6 @@ function authorization(){
 }
 
 function addPost(token){
-	check_valid();
 	var data = {
 			"kind": "blogger#post",
 			"blog": {
