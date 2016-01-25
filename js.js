@@ -31,7 +31,7 @@ function check_valid(){
 		authorization();
 	else{
 		$.get('https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], function(data){
-			if(data.error_description != 'undefined')
+			if(data.error_description != undefined)
 				authorization();
 			else
 				addPost(params['access_token']);
