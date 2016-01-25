@@ -3,16 +3,6 @@ var client_id = '968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleuserco
 var scope = 'https://www.googleapis.com/auth/blogger';
 
 $(function(){
-	var params = {},
-	    queryString = location.hash.substring(1),
-		regex = /([^&=]+)=([^&]*)/g, 
-		m;
-	while(m = regex.exec(queryString)){
-		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-	}
-	if(params['access_token'] == null)
-		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + '&client_id=' + client_id + '&redirect_uri=http://leonshih.github.io/626-Editor/';
-	
 	$('.newpost').click(function(){
 		addPost(params['access_token']);		
 	});
@@ -29,6 +19,20 @@ $(function(){
 	});
 });
 
+function authorization(){
+	var params = {},
+	    queryString = location.hash.substring(1),
+		regex = /([^&=]+)=([^&]*)/g, 
+		m;
+	while(m = regex.exec(queryString)){
+		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
+	}
+	if(params['access_token'] == null)
+		window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + 
+							   '&client_id=' + client_id + 
+							   '&redirect_uri=http://leonshih.github.io/626-Editor/';
+}
+
 function addPost(token){
 	var data = {
 			"kind": "blogger#post",
@@ -42,7 +46,7 @@ function addPost(token){
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
 		method: 'POST',
 		headers: {
-			'Authorization': 'Bearer' + token,
+			'Authorization': 'Bearer ' + token,
 			'Content-Type': 'application/json'
 		},
 		data: JSON.stringify(data)
