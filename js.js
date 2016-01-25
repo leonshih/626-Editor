@@ -30,11 +30,15 @@ function check_valid(){
 	if(params['access_token'] == null)
 		authorization();
 	else{
-		$.get('https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], function(data){
-			if(data.error_description != undefined)
-				authorization();
-			else
+		$.ajax({		
+			url: 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], 
+			type: 'GET',
+			success: function(){
 				addPost(params['access_token']);
+			},
+			error: function (){
+				authorization();
+			}
 		});
 	}
 }
