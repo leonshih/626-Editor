@@ -40,8 +40,8 @@ function addPost(token){
 			"blog": {
 				"id": "5768039957092517741"
 			},
-			"title": $('.postTitle')[0].value,
-			"content": $('.txtArea')[0].value
+			"title": $('#postTitle')[0].value,
+			"content": $('#txtArea')[0].value
 		};
 	$.ajax({
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
