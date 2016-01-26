@@ -72,6 +72,8 @@ function savePost(access_token, post_id){
 		'blog': {
 			'id': "5768039957092517741"
 		},
+		'url': $('#post_titles').find(":selected").data('value').url,
+		'selfLink': $('#post_titles').find(":selected").data('value').selfLink,
 		"title": $('#postTitle')[0].value,
 		"content": $('#txtArea')[0].value		
 	}
