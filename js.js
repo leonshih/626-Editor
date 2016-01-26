@@ -2,6 +2,7 @@ var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){
 	var access_token = $('.access_token')[0].innerHTML();
+	
 	$('.newpost').click(function(){
 		if (access_token == null)
 			window.open('auth.html', '', 'width=800,height=600');
@@ -32,9 +33,6 @@ $(function(){
 	});
 });
 
-
-
-
 function addPost(token){
 	var data = {
 			"kind": "blogger#post",
@@ -51,7 +49,7 @@ function addPost(token){
 			'Authorization': 'Bearer ' + token,
 			'Content-Type': 'application/json'
 		},
-		data: JSON.stringify(data)
+		data: JSON.stringify(data),
 		success: function(){
 			alert('發文成功!');
 		}
