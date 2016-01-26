@@ -119,6 +119,9 @@ function addPost(token){
 		success: function(){
 			updatePostsMenu();
 			alert('發文成功!');
+			$('#postTitle')[0].innerHTML='';
+			$('#txtArea')[0].innerHTML='';	
+			$('#post_id')[0].innerHTML='';
 		}
 	});
 }
