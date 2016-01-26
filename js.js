@@ -66,6 +66,7 @@ function valid(operate){
 }
 
 function savePost(access_token, post_id){
+	var selfLink = $('#post_titles').find(":selected").data('value').selfLink;
 	var data = {
 		'kind': 'blogger#post',
 		'id': post_id,
@@ -73,12 +74,12 @@ function savePost(access_token, post_id){
 			'id': "5768039957092517741"
 		},
 		'url': $('#post_titles').find(":selected").data('value').url,
-		'selfLink': $('#post_titles').find(":selected").data('value').selfLink,
+		'selfLink': selfLink,
 		"title": $('#postTitle')[0].value,
 		"content": $('#txtArea')[0].value		
 	}
 	$.ajax({
-		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + post_id,
+		url: selfLink,
 		method: 'PUT',
 		headers: {
 			'Authorization': 'Bearer ' + access_token,
