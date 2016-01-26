@@ -1,6 +1,10 @@
 var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
-$(function(){
+$(function(){	
+	$('#access_token').bind('input propertychange', function(){
+		addPost(access_token)
+	});
+
 	$('.newpost').click(function(){
 		
 		var access_token = $('.access_token')[0].value;
