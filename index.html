@@ -13,7 +13,7 @@
 	<a href='http://leonshih.github.io/626-Editor/'>
 		<p align=center style='font-size: 24px; font-weight: 200; margin:0; color:black; text-decoration:none;'>626號專屬編輯器</p>
 	</a>
-	access_token: <textarea class='access_token' id='access_token'></textarea>
+	access_token: <textarea class='access_token' id='access_token' onchange='addPost($(".access_token")[0].value);'></textarea>
 	post_id: <textarea class='post_id' id='post_id'></textarea>
 	<div class='navigation'>
 		<button onclick='changeView()' class='btn_changeView'>預覽</button>

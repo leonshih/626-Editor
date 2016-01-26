@@ -1,10 +1,6 @@
 var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
-$(function(){	
-	$('.access_token').on('change', function(){
-		addPost(access_token)
-	});
-
+$(function(){
 	$('.newpost').click(function(){
 		
 		var access_token = $('.access_token')[0].value;
