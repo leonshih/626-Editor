@@ -10,7 +10,7 @@ $(function(){
 	updatePostsMenu();
 	
 	$('#post_titles').on('change', function(){
-		var postId = $('#post_titles').data('id');
+		var postId = $('#post_titles').find(":selected").data('value').id;;
 		$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + postId + '?key=' + API_key, function(data){
 			$('#postTitle')[0].innerHTML = data.title;
 			$('#post_id')[0].innerHTML = postId;
