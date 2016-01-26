@@ -7,7 +7,7 @@ $(function(){
 		if (access_token == "")
 		{	
 			var wo = window.open('auth.html', '', 'width=800,height=600');
-			wo.onclose = function(){
+			wo.onbeforeunload = function(){
 				addPost(access_token)
 			};
 		}
@@ -21,7 +21,7 @@ $(function(){
 					},
 					error: function (){ //expire
 						var wo = window.open('auth.html', '', 'width=800,height=600');
-						wo.onclose = function(){
+						wo.onbeforeunload = function(){
 							addPost(access_token)
 						};
 					}
