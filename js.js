@@ -5,6 +5,7 @@ $(function(){
 		
 		var access_token = $('.access_token')[0].value;
 		if (access_token == "")
+		{
 			var wo = window.open('auth.html', '', 'width=800,height=600');
 			var timer = setInterval(function(){
 				if(wo.closed){
@@ -13,6 +14,7 @@ $(function(){
 					addPost(access_token);
 				}
 			});
+		}
 		else
 		{
 			$.ajax({		
