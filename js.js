@@ -60,7 +60,7 @@ function addPost(token){
 
 
 function updatePostsMenu(){
-	$('#post_titles').value = '<option disabled selected>--請選擇文章--</option>';
+	$('#post_titles')[0].innerHTML = '<option disabled selected>--請選擇文章--</option>';
 	$.ajax({
 		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
 		data: {
