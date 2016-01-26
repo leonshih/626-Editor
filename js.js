@@ -1,9 +1,9 @@
 var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
-$(function(){
-	var access_token = $('.access_token')[0].value;
-	
+$(function(){	
 	$('.newpost').click(function(){
+		
+		var access_token = $('.access_token')[0].value;
 		if (access_token == null)
 			window.open('auth.html', '', 'width=800,height=600');
 		else
