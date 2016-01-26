@@ -27,7 +27,6 @@
 					success: function(){
 						var access_token = window.opener.document.getElementById('access_token');
 						access_token.value = params['access_token'];
-						window.opener.addPost(params['access_token']);
 						window.close();
 					},
 					error: function (){ //expire
