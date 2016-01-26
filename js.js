@@ -52,6 +52,7 @@ function addPost(token){
 		},
 		data: JSON.stringify(data),
 		success: function(){
+			updatePostsMenu();
 			alert('發文成功!');
 		}
 	});
