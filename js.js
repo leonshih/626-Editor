@@ -1,10 +1,23 @@
 var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
-var client_id = '968472645869-h076nhkl5a6tm27ddhi16kcd913mnvjd.apps.googleusercontent.com';
-var scope = 'https://www.googleapis.com/auth/blogger';
 
 $(function(){
+	var access_token = $('.access_token')[0].innerHTML();
 	$('.newpost').click(function(){
-			check_valid();
+		if (access_token == null)
+			window.open('auth.html', '', 'width=800,height=600');
+		else
+		{
+			$.ajax({		
+					url: 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + access_token, 
+					type: 'GET',
+					success: function(){
+						addPost(access_token);
+					},
+					error: function (){ //expire
+						window.open('auth.html', '', 'width=800,height=600');
+					}
+				});
+		}
 	});
 	
 	updatePostsMenu();
@@ -19,35 +32,8 @@ $(function(){
 	});
 });
 
-function check_valid(){
-	var params = {},
-	    queryString = location.hash.substring(1),
-		regex = /([^&=]+)=([^&]*)/g, 
-		m;
-	while(m = regex.exec(queryString)){
-		params[decodeURIComponent(m[1])] = decodeURIComponent(m[2]);
-	}
-	if(params['access_token'] == null)
-		authorization();
-	else{
-		$.ajax({		
-			url: 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + params['access_token'], 
-			type: 'GET',
-			success: function(){
-				addPost(params['access_token']);
-			},
-			error: function (){
-				authorization();
-			}
-		});
-	}
-}
 
-function authorization(){
-	window.location.href = 'https://accounts.google.com/o/oauth2/v2/auth?response_type=token&scope=' + scope + 
-							   '&client_id=' + client_id + 
-							   '&redirect_uri=http://leonshih.github.io/626-Editor/&prompt=consent&state=teststate';
-}
+
 
 function addPost(token){
 	var data = {
@@ -66,6 +52,9 @@ function addPost(token){
 			'Content-Type': 'application/json'
 		},
 		data: JSON.stringify(data)
+		success: function(){
+			alert('發文成功!');
+		}
 	});
 }
 
