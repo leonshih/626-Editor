@@ -13,27 +13,29 @@
 	<a href='http://leonshih.github.io/626-Editor/'>
 		<p align=center style='font-size: 24px; font-weight: 200; margin:0; color:black; text-decoration:none;'>626號專屬編輯器</p>
 	</a>
-	access_token: <textarea class='access_token' id='access_token' ></textarea>
-	post_id: <textarea class='post_id' id='post_id'></textarea>
+	access_token: <textarea class='access_token' id='access_token' style='border:none; height: 18px'></textarea>
+	post_id: <textarea class='post_id' id='post_id' style='border:none; height: 18px'></textarea>
 	<div class='navigation'>
-		<button onclick='changeView()' class='btn_changeView'>預覽</button>
-		<button onclick='addThumbNail()'>新增首圖</button>
-		<image title='滑動連結' onclick='addGoDown()' src='img/godown.png'></image>
-		<image title='置中圖片' onclick='addCentralImg()' src='img/center.png'></image>
-		<image title='並排圖片' onclick='addRowImg()' src='img/rowimage.png'></image>
-		<image title='文繞圖(左)' onclick='addLeftImg()' src='img/floatleft.png'></image>
-		<image title='文繞圖(右)' onclick='addRightImg()' src='img/floatright.png' ></image>
-		<image title='小資訊' onclick='addInfo()' src='img/info.png'></image>
-		<image title='小知識' onclick='addKnowledge()' src='img/knowledge.png'></image>
-		<div style='float:right'>
-			<select id='post_titles'>
-				<option disabled selected>--請選擇文章--</option>
-			</select>
-			<button onclick='copyHTML()' style='display:none'>複製程式碼</button>
-			<button onclick='exportHTML()' style='display:none'>備份存檔</button>	
-			<button class='newpost'>另存新檔</button>
-			<button class='savepost'>儲存</button>
-			<textarea style='height:0; width: 0; overflow: hidden; opacity: 0;' class='js-copy'></textarea>
+		<div>
+			<button onclick='changeView()' class='btn_changeView'>預覽</button>
+			<button onclick='addThumbNail()'>新增首圖</button>
+			<image title='滑動連結' onclick='addGoDown()' src='img/godown.png'></image>
+			<image title='置中圖片' onclick='addCentralImg()' src='img/center.png'></image>
+			<image title='並排圖片' onclick='addRowImg()' src='img/rowimage.png'></image>
+			<image title='文繞圖(左)' onclick='addLeftImg()' src='img/floatleft.png'></image>
+			<image title='文繞圖(右)' onclick='addRightImg()' src='img/floatright.png' ></image>
+			<image title='小資訊' onclick='addInfo()' src='img/info.png'></image>
+			<image title='小知識' onclick='addKnowledge()' src='img/knowledge.png'></image>
+			<div style='float:right'>
+				<select id='post_titles'>
+					<option disabled selected>--請選擇文章--</option>
+				</select>
+				<button onclick='copyHTML()' style='display:none'>複製程式碼</button>
+				<button onclick='exportHTML()' style='display:none'>備份存檔</button>	
+				<button class='newpost'>另存新檔</button>
+				<button class='savepost'>儲存</button>
+				<textarea style='height:0; width: 0; overflow: hidden; opacity: 0;' class='js-copy'></textarea>
+			</div>
 		</div>
 	</div>
 	

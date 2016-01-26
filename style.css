@@ -31,7 +31,8 @@ body{
 	 cursor: pointer; 
 	 cursor: hand; 
 	 width: 35px; 
-	 height: 35px;
+	 height: 35px;    
+	 vertical-align: middle;
 }
 
 /*BLOGGER*/
