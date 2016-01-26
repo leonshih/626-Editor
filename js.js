@@ -123,7 +123,7 @@ function updatePostsMenu(){
 		},
 		success: function(data){
 			for(i=0; i<data.items.length; i++){
-			$('#post_titles').append($('<option></option>').attr('data-value', data.items[i]).text(data.items[i].title));
+			$('#post_titles').append($('<option></option>').attr('data-value', JSON.stringify(data.items[i])).text(data.items[i].title));
 		}
 		}
 	});
