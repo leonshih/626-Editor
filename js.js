@@ -1,17 +1,15 @@
 var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){	
-	$('#access_token').bind('input propertychange', function(){
-		addPost(access_token);
-		alert('change');
-	});
-
 	$('.newpost').click(function(){
 		
 		var access_token = $('.access_token')[0].value;
 		if (access_token == "")
 		{	
-			window.open('auth.html', '', 'width=800,height=600');
+			var wo = window.open('auth.html', '', 'width=800,height=600');
+			wo.onclose = function(){
+				addPost(access_token);
+			};
 		}
 		else
 		{
@@ -22,7 +20,11 @@ $(function(){
 						addPost(access_token);
 					},
 					error: function (){ //expire
-						window.open('auth.html', '', 'width=800,height=600');
+						var wo = window.open('auth.html', '', 'width=800,height=600');
+						wo.onclose = function(){
+							alert('closed');
+							addPost(access_token);
+						};
 					}
 				});
 		}
