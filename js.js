@@ -4,7 +4,7 @@ $(function(){
 	$('.newpost').click(function(){
 		
 		var access_token = $('.access_token')[0].value;
-		if (access_token == null)
+		if (access_token == "")
 			window.open('auth.html', '', 'width=800,height=600');
 		else
 		{
