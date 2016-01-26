@@ -7,7 +7,12 @@ $(function(){
 	$('.savepost').click(function(){
 		var cb = confirm("確定儲存? 這將會覆蓋掉原始文章!");
 		if (cb == true)
-			valid('savePost');
+		{	
+			if($('#post_id')[0].innerHTML == "")
+				alert('請選擇文章!');
+			else
+				valid('savePost');
+		}
 	});
 	updatePostsMenu();
 	
