@@ -5,12 +5,7 @@ $(function(){
 		
 		var access_token = $('.access_token')[0].value;
 		if (access_token == "")
-		{	
-			var wo = window.open('auth.html', '', 'width=800,height=600');
-			wo.onclose = function(){
-				addPost(access_token);
-			};
-		}
+			window.open('auth.html', '', 'width=800,height=600');
 		else
 		{
 			$.ajax({		
@@ -20,11 +15,7 @@ $(function(){
 						addPost(access_token);
 					},
 					error: function (){ //expire
-						var wo = window.open('auth.html', '', 'width=800,height=600');
-						wo.onclose = function(){
-							alert('closed');
-							addPost(access_token);
-						};
+						window.open('auth.html', '', 'width=800,height=600');
 					}
 				});
 		}
