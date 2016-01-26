@@ -9,6 +9,7 @@ $(function(){
 			var wo = window.open('auth.html', '', 'width=800,height=600');
 			var timer = setInterval(function(){
 				if(wo.closed){
+					access_token = $('.access_token')[0].value;
 					clearInterval(timer);
 					alert('closed');
 					addPost(access_token);
@@ -27,6 +28,7 @@ $(function(){
 						var wo = window.open('auth.html', '', 'width=800,height=600');
 						var timer = setInterval(function(){
 							if(wo.closed){
+								access_token = $('.access_token')[0].value;
 								clearInterval(timer);
 								alert('closed');
 								addPost(access_token);
