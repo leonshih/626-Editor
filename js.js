@@ -5,7 +5,9 @@ $(function(){
 		valid('newPost')
 	});
 	$('.savepost').click(function(){
-		valid('savePost');
+		var cb = confirm("確定儲存? 這將會覆蓋掉原始文章!");
+		if (cb == true)
+			valid('savePost');
 	});
 	updatePostsMenu();
 	
