@@ -78,7 +78,7 @@ function savePost(access_token, post_id){
 		"content": $('#txtArea')[0].value		
 	}
 	$.ajax({
-		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + post_id,
 		method: 'PUT',
 		headers: {
 			'Authorization': 'Bearer ' + access_token,
