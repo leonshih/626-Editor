@@ -2,7 +2,8 @@ var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){	
 	$('#access_token').bind('input propertychange', function(){
-		addPost(access_token)
+		addPost(access_token);
+		alert('change');
 	});
 
 	$('.newpost').click(function(){
