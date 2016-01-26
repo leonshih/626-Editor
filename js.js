@@ -1,7 +1,7 @@
 var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){
-	var access_token = $('.access_token')[0].innerHTML();
+	var access_token = $('.access_token')[0].value;
 	
 	$('.newpost').click(function(){
 		if (access_token == null)
