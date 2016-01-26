@@ -2,43 +2,11 @@ var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){	
 	$('.newpost').click(function(){
-		
-		var access_token = $('.access_token')[0].value;
-		if (access_token == "")
-		{
-			var wo = window.open('auth.html', '', 'width=800,height=600');
-			var timer = setInterval(function(){
-				if(wo.closed){
-					access_token = $('.access_token')[0].value;
-					clearInterval(timer);
-					alert('closed');
-					addPost(access_token);
-				}
-			});
-		}
-		else
-		{
-			$.ajax({		
-					url: 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + access_token, 
-					type: 'GET',
-					success: function(){
-						addPost(access_token);
-					},
-					error: function (){ //expire
-						var wo = window.open('auth.html', '', 'width=800,height=600');
-						var timer = setInterval(function(){
-							if(wo.closed){
-								access_token = $('.access_token')[0].value;
-								clearInterval(timer);
-								alert('closed');
-								addPost(access_token);
-							}
-						});
-					}
-				});
-		}
+		valid('newPost')
 	});
-	
+	$('.savepost').click(function(){
+		valid('savePost');
+	});
 	updatePostsMenu();
 	
 	$('#post_titles').on('change', function(){
@@ -51,6 +19,75 @@ $(function(){
 		});
 	});
 });
+
+function valid(operate){
+	var access_token = $('.access_token')[0].value;
+	var post_id = $('.post_id')[0].value;
+		if (access_token == "")
+		{
+			var wo = window.open('auth.html', '', 'width=800,height=600');
+			var timer = setInterval(function(){
+				if(wo.closed){
+					access_token = $('.access_token')[0].value;
+					clearInterval(timer);
+					if(operate == 'newPost')
+						addPost(access_token);
+					else if (operate == 'savePost')
+						savePost(access_token, post_id);
+				}
+			});
+		}
+		else
+		{
+			$.ajax({		
+					url: 'https://www.googleapis.com/oauth2/v3/tokeninfo?access_token=' + access_token, 
+					type: 'GET',
+					success: function(){
+						if(operate == 'newPost')
+							addPost(access_token);
+						else if (operate == 'savePost')
+							savePost(access_token, post_id);
+					},
+					error: function (){ //expire
+						var wo = window.open('auth.html', '', 'width=800,height=600');
+						var timer = setInterval(function(){
+							if(wo.closed){
+								access_token = $('.access_token')[0].value;
+								clearInterval(timer);
+								if(operate == 'newPost')
+									addPost(access_token);
+								else if (operate == 'savePost')
+									savePost(access_token, post_id);
+							}
+						});
+					}
+				});
+		}
+}
+
+function savePost(access_token, post_id){
+	var data = {
+		'kind': 'blogger#post',
+		'id': post_id,
+		'blog': {
+			'id': "5768039957092517741"
+		},
+		"title": $('#postTitle')[0].value,
+		"content": $('#txtArea')[0].value		
+	}
+	$.ajax({
+		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
+		method: 'PUT',
+		headers: {
+			'Authorization': 'Bearer ' + access_token,
+			'Content-Type': 'application/json'
+		},
+		data: JSON.stringify(data),
+		success: function(){
+			alert('儲存成功!');
+		}
+	});
+}
 
 function addPost(token){
 	var data = {
