@@ -26,8 +26,9 @@ $(function(){
 	$('#post_titles').on('change', function(){
 		var postId = $('#post_titles').val();
 		$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + postId + '?key=' + API_key, function(data){
-			var content = data.content;
-			$('#showArea')[0].innerHTML = content;
+			$('#postTitle')[0].innerHTML = data.title;
+			$('#post_id')[0].innerHTML = postId;
+			$('#showArea')[0].innerHTML = data.content;
 			$('#txtArea')[0].innerHTML =  $('#showArea')[0].innerHTML.replace(/<br.*?>/g, '\n');
 		});
 	});

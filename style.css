@@ -16,6 +16,10 @@
 	max-width: 100%;	
 	min-width: 100%;
 }
+#postTitle{
+	width: 100%;
+	
+}
 #showArea{
 	display: none;
 	line-height: 28px;
