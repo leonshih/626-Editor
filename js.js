@@ -10,7 +10,7 @@ $(function(){
 	updatePostsMenu();
 	
 	$('#post_titles').on('change', function(){
-		var postId = $('#post_titles').val().id;
+		var postId = $('#post_titles').data('id');
 		$.get('https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts/' + postId + '?key=' + API_key, function(data){
 			$('#postTitle')[0].innerHTML = data.title;
 			$('#post_id')[0].innerHTML = postId;
@@ -123,7 +123,7 @@ function updatePostsMenu(){
 		},
 		success: function(data){
 			for(i=0; i<data.items.length; i++){
-			$('#post_titles').append($('<option></option>').attr('value', data.items[i]).text(data.items[i].title));
+			$('#post_titles').append($('<option></option>').attr('data-value', data.items[i]).text(data.items[i].title));
 		}
 		}
 	});
