@@ -101,7 +101,6 @@ function savePost(access_token, post_id){
 
 function addPost(token){
 	var label = prompt("標籤 (e.g. 日本-東京)");
-	var url = prompt("網址名稱 (網址最後面的名稱.html)");
 	if(label!=null)
 	{
 		var data = {
@@ -111,8 +110,7 @@ function addPost(token){
 			},
 			"title": $('#postTitle')[0].value,
 			"content": $('#txtArea')[0].value,
-			"labels": [label],
-			"url": url
+			"labels": [label]
 		};
 		$.ajax({
 			url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
@@ -124,7 +122,7 @@ function addPost(token){
 			data: JSON.stringify(data),
 			success: function(){
 				updatePostsMenu();
-				alert('發文成功!');
+				alert('發文成功! 請進入Blogger後台編輯﹝搜尋說明﹞');
 				$('#postTitle')[0].innerHTML='';
 				$('#txtArea')[0].innerHTML='';	
 				$('#post_id')[0].innerHTML='';
