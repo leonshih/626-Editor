@@ -100,30 +100,40 @@ function savePost(access_token, post_id){
 }
 
 function addPost(token){
-	var data = {
+	var label = prompt("標籤 (e.g. 日本-東京)");
+	var url = prompt("網址名稱 (網址最後面的名稱.html)");
+	if(label!=null)
+	{
+		var data = {
 			"kind": "blogger#post",
 			"blog": {
 				"id": "5768039957092517741"
 			},
 			"title": $('#postTitle')[0].value,
-			"content": $('#txtArea')[0].value
+			"content": $('#txtArea')[0].value,
+			"labels": [label],
+			"url": url
 		};
-	$.ajax({
-		url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
-		method: 'POST',
-		headers: {
-			'Authorization': 'Bearer ' + token,
-			'Content-Type': 'application/json'
-		},
-		data: JSON.stringify(data),
-		success: function(){
-			updatePostsMenu();
-			alert('發文成功!');
-			$('#postTitle')[0].innerHTML='';
-			$('#txtArea')[0].innerHTML='';	
-			$('#post_id')[0].innerHTML='';
-		}
-	});
+		$.ajax({
+			url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
+			method: 'POST',
+			headers: {
+				'Authorization': 'Bearer ' + token,
+				'Content-Type': 'application/json'
+			},
+			data: JSON.stringify(data),
+			success: function(){
+				updatePostsMenu();
+				alert('發文成功!');
+				$('#postTitle')[0].innerHTML='';
+				$('#txtArea')[0].innerHTML='';	
+				$('#post_id')[0].innerHTML='';
+			}
+		});	
+	}
+	else
+		alert('發文失敗 (請輸入標籤與網址名稱)');
+	
 }
 
 
