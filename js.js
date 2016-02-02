@@ -139,7 +139,6 @@ function addPost(token){
 	}
 }
 
-
 function updatePostsMenu(){
 	$('#post_titles')[0].innerHTML = '<option disabled selected>--請選擇文章--</option>';
 	$.ajax({
