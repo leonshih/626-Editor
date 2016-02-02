@@ -197,6 +197,12 @@ function addInfo(){
 function addKnowledge(){
 	window.open('knowledge_input.html', '', 'width=1400,height=800')
 }
+function addReadMore(){
+	var txtArea = document.getElementById('txtArea');
+	var cursor = txtArea.selectionStart;
+	txtArea.value = (txtArea.value.substring(0, cursor) + '<!--more-->' + txtArea.value.substring(cursor));
+	
+}
 function typing(){
 	document.getElementById("txtArea").innerHTML = document.getElementById("txtArea").value;
 }
