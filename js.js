@@ -28,6 +28,7 @@ $(function(){
 });
 
 function valid(operate){
+	$.loading();
 	var access_token = $('.access_token')[0].value;
 	var post_id = $('.post_id')[0].value;
 		if (access_token == "")
@@ -95,6 +96,7 @@ function savePost(access_token, post_id){
 		data: JSON.stringify(data),
 		success: function(){
 			alert('儲存成功!');
+			$.loading('hide');
 		}
 	});
 }
@@ -126,12 +128,15 @@ function addPost(token){
 				$('#postTitle')[0].innerHTML='';
 				$('#txtArea')[0].innerHTML='';	
 				$('#post_id')[0].innerHTML='';
+				$.loading('hide');
 			}
 		});	
 	}
 	else
+	{
 		alert('發文失敗 (請輸入標籤與網址名稱)');
-	
+		$.loading('hide');
+	}
 }
 
 
@@ -233,6 +238,65 @@ function copyHTML(){
 	}
 }
 
+
+	//#region 顯示或隱藏 Loading 畫面, command: 'hide' --> 隱藏, command: 整數 --> 延遲 n 毫秒後才顯示
+	(function () {
+		var tmDelayLoading = null;
+		$.loading = function (command) {
+			if (tmDelayLoading) {
+				clearTimeout(tmDelayLoading);
+				tmDelayLoading = null;
+			}
+
+			if (command == 'hide') {
+				$('#ibLoading').remove();
+			} else {
+				if ($('#ibLoading').length) return;
+
+				function add() {
+					if ($('#ibLoading').length) return;
+
+					$('<div id="ibLoading"><div/><img/></div>')
+					.css({
+						display: 'block'
+						, position: 'fixed'
+						, top: 0, left: 0, width: '100%', height: '100%'
+						, 'z-index': $.loading.settings.zIndex
+					})
+					.find('div').css({
+						position: 'absolute'
+						, 'background-color': $.loading.settings.overlayBgColor
+						, opacity: $.loading.settings.overlayOpacity
+						, top: 0, left: 0, width: '100%', height: '100%'
+					}).end()
+					.find('img').attr('src', $.loading.settings.imageURL).css({
+						position: 'absolute'
+						, top: '50%', left: '50%'
+						, 'margin-top': '-' + ($.loading.settings.imageHeight / 2) + 'px', 'margin-left': '-' + ($.loading.settings.imageWidth / 2) + 'px'
+						, width : $.loading.settings.imageWidth
+						, height : $.loading.settings.imageHeight
+					}).end()
+					.appendTo('body')
+					;
+				}
+
+				if ($.isNumeric(command))
+					tmDelayLoading = setTimeout(add, command);
+				else
+					add();
+			}
+		};
+
+		$.loading.settings = {
+			overlayBgColor: '#000'  // 遮罩顏色
+			, overlayOpacity: 0.7   // 遮罩透明度
+			, zIndex: 99999999	  // z-index
+			, imageURL: '//www.facebook.com/images/loaders/indicator_blue_large.gif'	// 圖檔位址
+			, imageWidth: 32		// 圖檔寬
+			, imageHeight: 32	   // 圖檔高
+		};
+	})();
+	//#endregion
 
 
 
