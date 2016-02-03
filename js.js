@@ -2,7 +2,12 @@ var API_key = 'AIzaSyBzMomwt4w-woNKe0UlPJgZ14k1OEeEYO8';
 
 $(function(){	
 	$('.newpost').click(function(){
-		valid('newPost')
+		else if($('.postLabel')[0].innerHTML == "")
+			alert('請填寫標籤(e.g. 日本-東京)');
+		else if($('.searchExp')[0].innerHTML == "")
+			alert('請填寫搜尋說明');
+		else
+			valid('newPost');
 	});
 	$('.savepost').click(function(){
 		var cb = confirm("確定儲存? 這將會覆蓋掉原始文章!");
@@ -10,6 +15,10 @@ $(function(){
 		{	
 			if($('#post_id')[0].innerHTML == "")
 				alert('請選擇文章!');
+			else if($('.postLabel')[0].innerHTML == "")
+				alert('請填寫標籤(e.g. 日本-東京)');
+			else if($('.searchExp')[0].innerHTML == "")
+				alert('請填寫搜尋說明');
 			else
 				valid('savePost');
 		}
@@ -69,7 +78,7 @@ function valid(operate){
 							}
 						});
 					}
-				});
+			});
 		}
 }
 
@@ -97,13 +106,14 @@ function savePost(access_token, post_id){
 		success: function(){
 			alert('儲存成功!');
 			$.loading('hide');
+			window.location='http://leonshih.github.io/626-Editor/';
 		}
 	});
 }
 
 function addPost(token){
-	var label = prompt("標籤 (e.g. 日本-東京)");
-	if(label!=null)
+	var postUrl = prompt("永久連結：<br/>http://no626.blogspot.com/...");
+	if(postUrl!=null)
 	{
 		var data = {
 			"kind": "blogger#post",
@@ -112,7 +122,7 @@ function addPost(token){
 			},
 			"title": $('#postTitle')[0].value,
 			"content": $('#txtArea')[0].value,
-			"labels": [label]
+			"url": [postUrl]
 		};
 		$.ajax({
 			url: 'https://www.googleapis.com/blogger/v3/blogs/5768039957092517741/posts',
@@ -125,10 +135,8 @@ function addPost(token){
 			success: function(){
 				updatePostsMenu();
 				alert('發文成功! 請進入Blogger後台編輯﹝搜尋說明﹞');
-				$('#postTitle')[0].innerHTML='';
-				$('#txtArea')[0].innerHTML='';	
-				$('#post_id')[0].innerHTML='';
 				$.loading('hide');
+				window.location='http://leonshih.github.io/626-Editor/';
 			}
 		});	
 	}

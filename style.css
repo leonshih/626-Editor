@@ -19,6 +19,10 @@
 	margin: 5px 10px;
 	padding: 5px;
 }
+.searchExp{
+	width: 300px;
+	height: 100px;
+}
 #showArea, #txtArea{
 	width: 100%;
 	height: 500px;
