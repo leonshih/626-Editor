@@ -106,8 +106,11 @@ function savePost(access_token, post_id){
 			alert('儲存成功!');
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 			$.loading('hide');
 			window.location='http://leonshih.github.io/626-Editor/';
+=======
+>>>>>>> parent of 4c42e31... .
 =======
 >>>>>>> parent of 4c42e31... .
 =======
@@ -148,6 +151,9 @@ function addPost(token){
 				$('#txtArea')[0].innerHTML='';	
 				$('#post_id')[0].innerHTML='';
 <<<<<<< HEAD
+<<<<<<< HEAD
+>>>>>>> parent of 4c42e31... .
+=======
 >>>>>>> parent of 4c42e31... .
 =======
 >>>>>>> parent of 4c42e31... .
