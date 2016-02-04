@@ -1,7 +1,4 @@
-.div_left{
-	float: left;
-	width: 70%
-}
+
 .container, .navigation{
 	height: auto;
 	border: 1px solid #666;
@@ -11,13 +8,6 @@
 .container{
 	position: relative;
     word-wrap: break-word;
-}
-.div_right{
-	width: 25%;
-	float: left;
-	border: 1px solid #666;
-	margin: 5px 10px;
-	padding: 5px;
 }
 .searchExp{
 	width: 300px;
