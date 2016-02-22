@@ -9,9 +9,18 @@
 	position: relative;
     word-wrap: break-word;
 }
+<<<<<<< HEAD
 .searchExp{
 	width: 300px;
 	height: 100px;
+=======
+.div_right{
+	width: 25%;
+	float: left;
+	border: 1px solid #666;
+	margin: 5px 10px;
+	padding: 5px;
+>>>>>>> parent of 063a50b... .
 }
 #showArea, #txtArea{
 	width: 100%;

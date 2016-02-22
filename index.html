@@ -18,6 +18,7 @@
 	
 	<textarea class='access_token' id='access_token' style='display:none;'></textarea>
 <<<<<<< HEAD
+<<<<<<< HEAD
 	<textarea class='post_id' id='post_id'></textarea>
 	<div class='navigation'>
 		<div>
@@ -40,14 +41,52 @@
 				<button class='newpost'>發表新文</button>
 				<button class='savepost'>儲存</button>
 				<textarea style='height:0; width: 0; overflow: hidden; opacity: 0;' class='js-copy'></textarea>
+=======
+	<textarea class='post_id' id='post_id' style='display:none;'></textarea>
+	<div class='div_left'>
+		<div class='navigation'>
+			<div>
+				<button onclick='changeView()' class='btn_changeView' style='background: white; height: 25px; cursor: pointer; cursor: hand;'>預覽</button>
+				<button onclick='addThumbNail()' style='background: white; height: 25px; cursor: pointer; cursor: hand;'>首圖</button>
+				<image title='滑動連結' onclick='addGoDown()' src='img/godown.png'></image>
+				<image title='置中圖片' onclick='addCentralImg()' src='img/center.png'></image>
+				<image title='並排圖片' onclick='addRowImg()' src='img/rowimage.png'></image>
+				<image title='文繞圖(左)' onclick='addLeftImg()' src='img/floatleft.png'></image>
+				<image title='文繞圖(右)' onclick='addRightImg()' src='img/floatright.png' ></image>
+				<image title='小資訊' onclick='addInfo()' src='img/info.png'></image>
+				<image title='小知識' onclick='addKnowledge()' src='img/knowledge.png'></image>
+				<image title='插入繼續閱讀' onclick='addReadMore()' src='img/break.png'></image>
+				<div style='float:right'>
+					<select id='post_titles'>
+						<option disabled selected>--請選擇文章--</option>
+					</select>
+					<button onclick='copyHTML()' style='display:none'>複製程式碼</button>
+					<button onclick='exportHTML()' style='display:none'>備份存檔</button>	
+					<button class='newpost'>發表新文</button>
+					<button class='savepost'>儲存</button>
+					<textarea style='height:0; width: 0; overflow: hidden; opacity: 0;' class='js-copy'></textarea>
+				</div>
+>>>>>>> parent of 063a50b... .
 			</div>
 		</div>
 	</div>
+<<<<<<< HEAD
 		
 	<div class='container'>
 		<textarea id='postTitle'></textarea>
 		<textarea id='txtArea' oninput="typing()"></textarea>
 		<div id='showArea'></div>		
+=======
+	<div class='div_right'>
+		標籤：</br>	
+		<input class='postLabel'></input></br>
+		</br>	
+		永久連結：</br>	
+		http://no626.blogspot.com/.../ <input class='postUrl'></input>.html</br>
+		</br>
+		搜尋說明：</br>
+		<textarea class='searchExp'></textarea>
+>>>>>>> parent of 063a50b... .
 	</div>
 </body>
 </html>
