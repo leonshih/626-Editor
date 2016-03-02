@@ -95,20 +95,8 @@ function savePost(access_token, post_id){
 		data: JSON.stringify(data),
 		success: function(){
 			alert('儲存成功!');
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 			$.loading('hide');
-<<<<<<< HEAD
 			window.location='http://leonshih.github.io/626-Editor/';
-=======
->>>>>>> parent of 4c42e31... .
-=======
->>>>>>> parent of 4c42e31... .
-=======
->>>>>>> parent of 4c42e31... .
-=======
->>>>>>> parent of 063a50b... .
 		}
 	});
 }
@@ -137,27 +125,15 @@ function addPost(token){
 			success: function(){
 				updatePostsMenu();
 				alert('發文成功! 請進入Blogger後台編輯﹝搜尋說明﹞');
-<<<<<<< HEAD
-<<<<<<< HEAD
 				$.loading('hide');
 				window.location='http://leonshih.github.io/626-Editor/';
-=======
 				$('#postTitle')[0].innerHTML='';
 				$('#txtArea')[0].innerHTML='';	
 				$('#post_id')[0].innerHTML='';
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> parent of 4c42e31... .
-=======
->>>>>>> parent of 4c42e31... .
-=======
->>>>>>> parent of 4c42e31... .
-=======
 				$('#postTitle')[0].innerHTML='';
 				$('#txtArea')[0].innerHTML='';	
 				$('#post_id')[0].innerHTML='';
 				$.loading('hide');
->>>>>>> parent of 063a50b... .
 			}
 		});	
 	}
