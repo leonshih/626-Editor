@@ -133,7 +133,6 @@ function addPost(token){
 				$('#postTitle')[0].innerHTML='';
 				$('#txtArea')[0].innerHTML='';	
 				$('#post_id')[0].innerHTML='';
-				$.loading('hide');
 			}
 		});	
 	}
